@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-bg">
+  <script src="script.js"></script>
+
+  <div class="wrap center-vh">
+    <div class="card fade-in">
+      <div class="panda-row">
+        <img src="images/panda.jpg" alt="panda" class="panda-gif small">
+        <div class="speech">
+          <div id="name-speech" class="speech-text"></div>
+        </div>
+      </div>
+
+      <h2 class="ask-title">Hey beautiful, what's your name? 💫</h2>
+
+      <input id="name-input"
+             class="name-input"
+             type="text"
+             placeholder="Type her name (e.g. Rashmii)">
+
+      <div class="actions">
+        <button id="skip" class="btn btn-muted">Skip</button>
+        <button id="continue" class="btn btn-primary">Continue 💕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <script>
+    // greeting from panda, then focus input
+    (function(){
+      const nameSpeechEl = document.getElementById('name-speech');
+      const initialText = "Aww… before we begin, tell me your sweet name, princess 💫";
+      typeText(nameSpeechEl, initialText, 28, () => {
+        document.getElementById('name-input').focus();
+      });
+
+      const input = document.getElementById('name-input');
+      const cont = document.getElementById('continue');
+      const skip = document.getElementById('skip');
+
+      // Pre-fill if present
+      const saved = localStorage.getItem('birthday_name');
+      if (saved) input.value = saved;
+
+      cont.addEventListener('click', async () => {
+        const name = input.value.trim() || 'Princess';
+        localStorage.setItem('birthday_name', name);
+        sessionStorage.setItem('userInteracted', '1');
+
+        // panda compliments and flirt
+        await pandaReplySequence(`Mmm… ${name} — what a lovely name, just like you 😘`, 28);
+        persistBGMNow();
+        document.body.classList.add('page-fadeout');
+        setTimeout(()=> window.location.href = 'quote.html', 700);
+      });
+
+      skip.addEventListener('click', async () => {
+        localStorage.setItem('birthday_name', 'Princess');
+        sessionStorage.setItem('userInteracted', '1');
+        await pandaReplySequence('Alright, Princess it is! 💖', 28);
+        persistBGMNow();
+        document.body.classList.add('page-fadeout');
+        setTimeout(()=> window.location.href = 'quote.html', 700);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') cont.click();
+      });
+
+      // helper for panda reply
+      function pandaReplySequence(text, speed){
+        return new Promise(res => {
+          const el = document.getElementById('name-speech');
+          typeText(el, text, speed, res);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

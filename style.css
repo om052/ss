@@ -1,0 +1,158 @@
+/* =============================
+   Sweet Panda Romantic Theme + 3D Gallery
+   ============================= */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bilbo+Swash+Caps&family=Inter:opsz,wght@14..32,500&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:wght@300;400;600&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
+
+/* --- Root Colors --- */
+:root{
+  --bg1: #ffdee9;
+  --bg2: #e7d6ff;
+  --accent: #ff7eb3;
+  --muted: rgba(255,255,255,0.85);
+  --glass: rgba(255,255,255,0.08);
+  --card-shadow: 0 8px 30px rgba(16,10,20,0.18);
+  --radius: 14px;
+  --font-heading: 'Dancing Script', cursive;
+  --font-sans: 'Poppins', 'Pacifico', system-ui, sans-serif;
+}
+
+/* --- Reset & Globals --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  touch-action: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, #ffd6e7 0%, #e2c8ff 50%, #fbe5f1 100%);
+  -webkit-font-smoothing: antialiased;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* =============================
+   🌸 Panda Romantic Card Section
+   ============================= */
+.wrap { max-width:900px; margin:auto; padding:24px; }
+
+.card, .intro-card, .quote-card {
+  width:100%; max-width:680px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+  border-radius: var(--radius);
+  padding:28px;
+  box-shadow: var(--card-shadow);
+  text-align:center;
+  backdrop-filter: blur(6px) saturate(1.05);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.intro-card { padding:40px; }
+
+h1.intro-title { font-family:var(--font-heading); font-size:46px; color:#6b0f47; }
+.intro-sub { color:#6b0f47cc; margin-bottom:18px; }
+
+.name-input {
+  width:100%; padding:14px 16px; font-size:18px;
+  border-radius:12px; border:1px solid rgba(107,15,71,0.12);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 6px 18px rgba(107,15,71,0.06);
+  outline:none; margin-bottom:16px;
+}
+.name-input:focus { box-shadow: 0 8px 30px rgba(183,85,150,0.18); border-color: rgba(255,126,179,0.8); }
+
+.actions { display:flex; gap:12px; justify-content:center; margin-top:10px; }
+.btn { padding:10px 18px; border-radius:12px; border:none; font-weight:600; cursor:pointer; font-size:16px; }
+.btn-primary { background: linear-gradient(90deg,#ff7eb3,#c77fff); color:white; box-shadow: 0 10px 24px rgba(199,127,255,0.18); }
+.btn-muted { background:transparent; color:#6b0f47; border:1px solid rgba(107,15,71,0.08); }
+
+/* Panda + Bubble */
+.panda-row { display:flex; align-items:flex-start; gap:12px; justify-content:center; margin-bottom:12px; }
+.panda-gif { width:108px; border-radius:14px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.speech { max-width:62%; background: rgba(255,255,255,0.95); border-radius:12px; padding:12px 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+.speech-text { font-size:16px; color:#4b2a3a; }
+
+/* Floating Hearts + Emojis */
+.emoji-row { display:flex; gap:14px; justify-content:center; margin-bottom:14px; }
+.float-emoji { font-size:36px; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+
+/* =============================
+   🎠 3D Spin Gallery Section
+   ============================= */
+#drag-container, #spin-container {
+  position: relative;
+  display: flex;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg);
+  z-index: 100;
+}
+#drag-container img {
+  position: absolute;
+  width: 86px; height: 124px;
+  border: 4px solid #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  object-fit: cover;
+  box-shadow: 0 0 8px #fff;
+  animation: delayShadow 1s forwards;
+  animation-delay: 2s;
+}
+@keyframes delayShadow {
+  to { box-shadow: rgb(0 0 0 / 27%) 1px 3px 6px; }
+}
+#drag-container img:hover {
+  box-shadow: 0 0 15px #fff;
+  transform: scale(1.1);
+}
+
+/* Floating Button */
+.button {
+  height: 121px;
+  padding: 10px 30px;
+  background: url('./images/Message.png') center/contain no-repeat;
+  border-radius: 20px;
+  position: absolute;
+  top: 13%;
+  left: 24%;
+  opacity: 0;
+  animation: showUp 1s forwards 5s;
+  transition: all .3s ease-in-out;
+}
+.button:hover { transform: scale(2.1); }
+@keyframes showUp { to { opacity: 1; } }
+
+/* Ground Reflection */
+#ground {
+  width: 900px; height: 900px;
+  position: absolute; top: 100%; left: 50%;
+  transform: translate(-50%,-50%) rotateX(90deg);
+  background: radial-gradient(circle, #9993, transparent);
+}
+
+/* Spin Animations */
+@keyframes spin { from{transform:rotateY(0)} to{transform:rotateY(360deg)} }
+@keyframes spinRevert { from{transform:rotateY(360deg)} to{transform:rotateY(0)} }
+
+/* Panda Overlay (Top-right floating) */
+.panda-overlay {
+  position: fixed;
+  right: 20px; top: 20px;
+  display: flex; align-items: center; gap: 10px;
+  z-index: 9999; opacity: 0; pointer-events: none;
+  transition: all .35s ease;
+}
+.panda-overlay.panda-show { opacity: 1; transform: translateY(0); pointer-events:auto; }
+.panda-bubble { background: rgba(255,255,255,0.95); border-radius:12px; padding:8px 12px; box-shadow:0 8px 24px rgba(0,0,0,0.12); color:#4b2a3a; }
+
+/* Responsive */
+@media (max-width:520px) {
+  .card, .intro-card { padding:20px; border-radius:12px; }
+  h1.intro-title { font-size:34px; }
+  .panda-gif { width:84px; }
+  .speech { max-width: 58%; }
+}

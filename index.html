@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday — Intro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-bg">
+  <!-- BGM + panda script -->
+  <script src="script.js"></script>
+
+  <div class="wrap center-vh">
+    <div class="intro-card fade-in">
+      <div class="emoji-row" aria-hidden="true">
+        <span class="float-emoji">🌸</span>
+        <span class="float-emoji">💖</span>
+        <span class="float-emoji">🎀</span>
+        <span class="float-emoji">✨</span>
+        <span class="float-emoji">🎂</span>
+      </div>
+
+      <div class="panda-row">
+        <img src="images/panda.jpg" alt="panda" class="panda-gif">
+        <div class="speech">
+          <div id="intro-speech" class="speech-text"></div>
+        </div>
+      </div>
+
+      <h1 class="intro-title">A little surprise for you</h1>
+      <p class="intro-sub">Soft music, sweet words, and a little magic ✨</p>
+
+      <div class="intro-actions">
+        <button id="intro-next" class="btn btn-primary">Let’s go, Panda! ❤️</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <script>
+    // typing sequence for intro speech
+    (function () {
+      const text = "Hey beautiful princess! 🐼💖 My name is God's Helper. I've come here to guide you on our journey — Sahil sent me for this. I've been waiting for you… let's start your special day together!";
+      const el = document.getElementById('intro-speech');
+      typeText(el, text, 28, () => {
+        // show button after typing done (tiny delay)
+        document.getElementById('intro-next').style.opacity = 1;
+      });
+
+      document.getElementById('intro-next').addEventListener('click', function () {
+        sessionStorage.setItem('userInteracted', '1');
+        persistBGMNow(); // save position before page change
+        // small transition
+        document.body.classList.add('page-fadeout');
+        setTimeout(()=> window.location.href = 'name.html', 600);
+      });
+    })();
+  </script>
+</body>
+</html>

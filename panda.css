@@ -1,0 +1,65 @@
+/* 🐼 Panda overlay styles */
+.panda-overlay {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out, transform 0.4s ease-in-out;
+  transform: translateY(20px);
+}
+
+.panda-show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.panda-small {
+  width: 110px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+  animation: panda-bounce 2.8s infinite ease-in-out;
+}
+
+@keyframes panda-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* 💬 Panda speech bubble */
+.panda-bubble {
+  background: rgba(255, 255, 255, 0.85);
+  color: #ff007b;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  max-width: 220px;
+  text-align: center;
+  animation: bubble-float 4s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 🌸 Mobile adjust */
+@media screen and (max-width: 600px) {
+  .panda-overlay {
+    bottom: 20px;
+    left: 10px;
+  }
+  .panda-small {
+    width: 80px;
+  }
+  .panda-bubble {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+}

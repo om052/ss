@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Quote for You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-bg">
+  <script src="script.js"></script>
+
+  <div class="wrap center-vh">
+    <div class="quote-card fade-in">
+      <div class="panda-row">
+        <img src="images/panda.jpg" alt="panda" class="panda-gif small">
+        <div class="speech">
+          <div id="quote-speech" class="speech-text"></div>
+        </div>
+      </div>
+
+      <div class="quote-graphic" aria-hidden="true">💖</div>
+      <h2 id="greeting" class="greeting">Happy Birthday, Princess! 🌸</h2>
+      <p id="quote-text" class="quote-text">You make the world brighter just by being in it.</p>
+
+      <div class="actions">
+        <button id="to-main" class="btn btn-primary">Continue to Surprise 🎁</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <script>
+    (function(){
+      const name = localStorage.getItem('birthday_name') || 'Princess';
+      document.getElementById('greeting').textContent = `Happy Birthday, ${name}! 🌸`;
+      document.getElementById('quote-text').textContent = `Dear ${name}, you make the world brighter just by being in it 💖`;
+
+      // panda message typed
+      const speech = `Every moment with you feels like a fairytale, ${name} 💕`;
+      typeText(document.getElementById('quote-speech'), speech, 28, () => {
+        // nothing
+      });
+
+      document.getElementById('to-main').addEventListener('click', () => {
+        sessionStorage.setItem('userInteracted', '1');
+        persistBGMNow();
+        document.body.classList.add('page-fadeout');
+        setTimeout(()=> window.location.href = 'index.html', 650);
+      });
+    })();
+  </script>
+</body>
+</html>

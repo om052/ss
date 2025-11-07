@@ -156,21 +156,7 @@ h1.intro-title { font-family:var(--font-heading); font-size:46px; color:#6b0f47;
   .panda-gif { width:84px; }
   .speech { max-width: 58%; }
 }
-.panda-row img {
-  width: 120px;              /* smaller, balanced size */
-  max-width: 100%;           /* prevent overflow */
-  height: auto;              /* keeps aspect ratio */
-  border-radius: 16px;       /* rounded corners */
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.panda-row img:hover {
-  transform: scale(1.07);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
 
 
 

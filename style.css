@@ -156,3 +156,18 @@ h1.intro-title { font-family:var(--font-heading); font-size:46px; color:#6b0f47;
   .panda-gif { width:84px; }
   .speech { max-width: 58%; }
 }
+.panda-row img {
+  width: 180px;        /* controls image size — you can adjust this */
+  height: auto;        /* keeps correct aspect ratio */
+  border-radius: 20px; /* smooth rounded edges */
+  display: block;
+  margin: 0 auto;      /* centers the image */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* soft glow effect */
+  transition: transform 0.3s ease;
+}
+
+.panda-row img:hover {
+  transform: scale(1.05); /* cute zoom on hover */
+}
+
+

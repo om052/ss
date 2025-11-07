@@ -81,8 +81,9 @@ function showResult() {
 }
 
 continueBtn.addEventListener("click", () => {
-  window.location.href = "photo.html";
+  window.location.href = "sl.html";
 });
 
 // Initialize
 showQuestion();
+

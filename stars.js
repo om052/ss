@@ -36,6 +36,7 @@ nextBtn.addEventListener("click", () => {
   } else {
     msgText.textContent = "You’re my forever star — the one I wished for and never want to let go";
     nextBtn.textContent = "Continue 💖";
-    nextBtn.onclick = () => (window.location.href = "index.html");
+    nextBtn.onclick = () => (window.location.href = "game.html");
   }
 });
+

@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bilbo+Swash+Caps&family=Inter:opsz,wght@14..32,500&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:wght@300;400;600&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
 
 /* --- Root Colors --- */
-:root{
+:root {
   --bg1: #ffdee9;
   --bg2: #e7d6ff;
   --accent: #ff7eb3;
@@ -38,46 +38,51 @@ html, body {
 /* =============================
    🌸 Panda Romantic Card Section
    ============================= */
-.wrap { max-width:900px; margin:auto; padding:24px; }
+.wrap { max-width: 900px; margin: auto; padding: 24px; }
 
 .card, .intro-card, .quote-card {
-  width:100%; max-width:680px;
+  width: 100%; max-width: 680px;
   background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
   border-radius: var(--radius);
-  padding:28px;
+  padding: 28px;
   box-shadow: var(--card-shadow);
-  text-align:center;
+  text-align: center;
   backdrop-filter: blur(6px) saturate(1.05);
   border: 1px solid rgba(255,255,255,0.6);
 }
-.intro-card { padding:40px; }
+.intro-card { padding: 40px; }
 
-h1.intro-title { font-family:var(--font-heading); font-size:46px; color:#6b0f47; }
-.intro-sub { color:#6b0f47cc; margin-bottom:18px; }
+h1.intro-title { font-family: var(--font-heading); font-size: 46px; color: #6b0f47; }
+.intro-sub { color: #6b0f47cc; margin-bottom: 18px; }
 
 .name-input {
-  width:100%; padding:14px 16px; font-size:18px;
-  border-radius:12px; border:1px solid rgba(107,15,71,0.12);
+  width: 100%; padding: 14px 16px; font-size: 18px;
+  border-radius: 12px; border: 1px solid rgba(107,15,71,0.12);
   background: rgba(255,255,255,0.95);
   box-shadow: 0 6px 18px rgba(107,15,71,0.06);
-  outline:none; margin-bottom:16px;
+  outline: none; margin-bottom: 16px;
 }
 .name-input:focus { box-shadow: 0 8px 30px rgba(183,85,150,0.18); border-color: rgba(255,126,179,0.8); }
 
-.actions { display:flex; gap:12px; justify-content:center; margin-top:10px; }
-.btn { padding:10px 18px; border-radius:12px; border:none; font-weight:600; cursor:pointer; font-size:16px; }
-.btn-primary { background: linear-gradient(90deg,#ff7eb3,#c77fff); color:white; box-shadow: 0 10px 24px rgba(199,127,255,0.18); }
-.btn-muted { background:transparent; color:#6b0f47; border:1px solid rgba(107,15,71,0.08); }
+.actions { display: flex; gap: 12px; justify-content: center; margin-top: 10px; }
+.btn { padding: 10px 18px; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; font-size: 16px; }
+.btn-primary { background: linear-gradient(90deg,#ff7eb3,#c77fff); color: white; box-shadow: 0 10px 24px rgba(199,127,255,0.18); }
+.btn-muted { background: transparent; color: #6b0f47; border: 1px solid rgba(107,15,71,0.08); }
 
 /* Panda + Bubble */
-.panda-row { display:flex; align-items:flex-start; gap:12px; justify-content:center; margin-bottom:12px; }
-.panda-gif { width:108px; border-radius:14px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-.speech { max-width:62%; background: rgba(255,255,255,0.95); border-radius:12px; padding:12px 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-.speech-text { font-size:16px; color:#4b2a3a; }
+.panda-row { display: flex; align-items: flex-start; gap: 12px; justify-content: center; margin-bottom: 12px; }
+.panda-gif {
+  width: 80px;   /* 🐼 smaller panda image size */
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.speech { max-width: 62%; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 12px 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+.speech-text { font-size: 16px; color: #4b2a3a; }
 
 /* Floating Hearts + Emojis */
-.emoji-row { display:flex; gap:14px; justify-content:center; margin-bottom:14px; }
-.float-emoji { font-size:36px; animation: float 4s ease-in-out infinite; }
+.emoji-row { display: flex; gap: 14px; justify-content: center; margin-bottom: 14px; }
+.float-emoji { font-size: 36px; animation: float 4s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
 
 /* =============================
@@ -102,9 +107,7 @@ h1.intro-title { font-family:var(--font-heading); font-size:46px; color:#6b0f47;
   animation: delayShadow 1s forwards;
   animation-delay: 2s;
 }
-@keyframes delayShadow {
-  to { box-shadow: rgb(0 0 0 / 27%) 1px 3px 6px; }
-}
+@keyframes delayShadow { to { box-shadow: rgb(0 0 0 / 27%) 1px 3px 6px; } }
 #drag-container img:hover {
   box-shadow: 0 0 15px #fff;
   transform: scale(1.1);
@@ -146,18 +149,13 @@ h1.intro-title { font-family:var(--font-heading); font-size:46px; color:#6b0f47;
   z-index: 9999; opacity: 0; pointer-events: none;
   transition: all .35s ease;
 }
-.panda-overlay.panda-show { opacity: 1; transform: translateY(0); pointer-events:auto; }
-.panda-bubble { background: rgba(255,255,255,0.95); border-radius:12px; padding:8px 12px; box-shadow:0 8px 24px rgba(0,0,0,0.12); color:#4b2a3a; }
+.panda-overlay.panda-show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.panda-bubble { background: rgba(255,255,255,0.95); border-radius: 12px; padding: 8px 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); color: #4b2a3a; }
 
 /* Responsive */
 @media (max-width:520px) {
   .card, .intro-card { padding:20px; border-radius:12px; }
   h1.intro-title { font-size:34px; }
-  .panda-gif { width:84px; }
-  .speech { max-width: 58%; }
+  .panda-gif { width:70px; } /* smaller on mobile too */
+  .speech { max-width:58%; }
 }
-
-
-
-
-

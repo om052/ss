@@ -1,4 +1,4 @@
-// 🧠 Your shared correct answers
+// 💞 Predefined Questions
 const questions = [
   {
     question: "What's my favorite color?",
@@ -12,13 +12,13 @@ const questions = [
   },
   {
     question: "Which movie do we both enjoy?",
-    options: ["YJHD 🎬", "Titanic 🚢", "3 Idiots 🎓", "KGF 🔥"],
-    correct: "YJHD 🎬"
+    options: ["Taqdeer 🎬", "Titanic 🚢", "3 Idiots 🎓", "KGF 🔥"],
+    correct: "Taqdeer 🎬"
   },
   {
     question: "What’s our favorite food together?",
     options: ["Pizza 🍕", "Pani Puri 🌶️", "Burger 🍔", "Ice Cream 🍨"],
-    correct: "Pani Puri 🌶️"
+    correct: "Ice Cream 🍨"
   }
 ];
 
@@ -32,6 +32,7 @@ const resultBox = document.getElementById("result-box");
 const scoreText = document.getElementById("score");
 const continueBtn = document.getElementById("continue-btn");
 
+// 🌸 Show Question
 function showQuestion() {
   const q = questions[currentQuestion];
   questionElement.textContent = q.question;
@@ -86,4 +87,3 @@ continueBtn.addEventListener("click", () => {
 
 // Initialize
 showQuestion();
-

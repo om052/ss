@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Well Do We Know Each Other 💞</title>
-  <link rel="stylesheet" href="game.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💞 How Well Do We Know Each Other?</title>
+  <link rel="stylesheet" href="game.css" />
 </head>
 <body>
+  <div class="hearts"></div>
+
   <div class="game-container">
     <div class="game-card">
       <h1>💖 How Well Do We Know Each Other? 💖</h1>
@@ -20,11 +22,16 @@
       <div id="result-box" class="hidden">
         <h2>Your Love Score 💌</h2>
         <p id="score"></p>
-        <p class="quote">"If it’s 100, destiny agrees; if not, destiny still knows — it’s us."</p>
+        <p class="quote">
+          "If it’s 100, destiny agrees; if not, destiny still knows — it’s us."
+        </p>
         <button id="continue-btn">Continue ❤️</button>
       </div>
     </div>
   </div>
+
+  <audio id="correct-sound" src="https://cdn.pixabay.com/audio/2022/03/10/audio_5b8f2ffb3a.mp3"></audio>
+  <audio id="wrong-sound" src="https://cdn.pixabay.com/audio/2022/03/10/audio_3a2bbfc173.mp3"></audio>
 
   <script src="game.js"></script>
 </body>

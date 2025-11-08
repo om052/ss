@@ -1,17 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap');
 
-/* 💫 Background Gradient */
+/* 🌸 Base Style */
 body {
   margin: 0;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  background: linear-gradient(135deg, #ffb6c1, #a6c1ee);
   font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
 }
 
-/* 💝 Main Card */
+/* Floating Hearts 💕 */
+.hearts::before,
+.hearts::after {
+  content: '💗';
+  position: absolute;
+  animation: floatHearts 6s infinite ease-in-out;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+.hearts::after {
+  left: 80%;
+  animation-delay: 2s;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* 🌼 Card Layout */
 .game-container {
   display: flex;
   justify-content: center;
@@ -20,36 +42,37 @@ body {
 }
 
 .game-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
-  padding: 30px 40px;
+  padding: 35px 45px;
   width: 90%;
   max-width: 450px;
   animation: fadeIn 1s ease;
+  transition: all 0.4s ease;
 }
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
   font-family: 'Pacifico', cursive;
   font-size: 1.8rem;
-  color: #333;
+  color: #444;
   margin-bottom: 20px;
 }
 
 h2 {
-  color: #444;
+  color: #555;
   font-size: 1.2rem;
   margin-bottom: 15px;
 }
 
-/* 💬 Options */
+/* ✨ Options */
 #options {
   display: flex;
   flex-direction: column;
@@ -64,22 +87,22 @@ h2 {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .option:hover {
-  border-color: #ff9ac5;
-  transform: scale(1.03);
+  border-color: #ff8ab8;
+  transform: scale(1.05);
 }
 
 .option.correct {
-  background: #8ee78e;
-  color: #fff;
+  background: #7ed957;
+  color: white;
 }
 
 .option.wrong {
-  background: #ff7070;
-  color: #fff;
+  background: #ff6b81;
+  color: white;
 }
 
 /* 💖 Buttons */
@@ -92,12 +115,12 @@ h2 {
   font-size: 1rem;
   cursor: pointer;
   margin-top: 20px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-  transition: 0.3s;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 #next-btn:hover, #continue-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
@@ -111,4 +134,5 @@ h2 {
   font-style: italic;
   color: #555;
   font-size: 1rem;
+  animation: fadeIn 1.2s ease-in;
 }

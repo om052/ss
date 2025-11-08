@@ -1,73 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap');
+
+/* 💫 Background Gradient */
 body {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #f9c5d1, #f8ced8, #e0b4ff);
+  margin: 0;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 💝 Main Card */
+.game-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  width: 100%;
 }
 
-.game-container {
-  background: white;
+.game-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(25px);
   border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
   padding: 30px 40px;
   width: 90%;
-  max-width: 500px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  max-width: 450px;
+  animation: fadeIn 1s ease;
 }
 
-h2 {
-  color: #ff5f9e;
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: #333;
   margin-bottom: 20px;
 }
 
-#question-box {
-  margin-top: 20px;
-}
-
-.option-btn {
-  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-  border: none;
-  color: #fff;
-  padding: 12px 20px;
-  margin: 8px 0;
-  width: 100%;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.option-btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #fcb69f, #ffecd2);
-}
-
-#result-box {
-  display: none;
-  margin-top: 20px;
-}
-
-#result-text {
-  font-size: 22px;
-  color: #ff66a6;
+h2 {
+  color: #444;
+  font-size: 1.2rem;
   margin-bottom: 15px;
 }
 
-#continue-btn {
-  background: linear-gradient(90deg, #fda085, #f6d365);
-  border: none;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+/* 💬 Options */
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-#continue-btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #f9c5d1, #fcb69f);
+.option {
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.option:hover {
+  border-color: #ff9ac5;
+  transform: scale(1.03);
+}
+
+.option.correct {
+  background: #8ee78e;
+  color: #fff;
+}
+
+.option.wrong {
+  background: #ff7070;
+  color: #fff;
+}
+
+/* 💖 Buttons */
+#next-btn, #continue-btn {
+  background: linear-gradient(135deg, #ff9ac5, #a885ee);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+#next-btn:hover, #continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+/* 💌 Quote */
+.quote {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+  font-size: 1rem;
 }

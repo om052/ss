@@ -3,23 +3,23 @@ const questions = [
   {
     question: "What's my favorite color?",
     options: ["Blue 💙", "Red ❤️", "Black 🖤", "Pink 💗"],
-    correct: "Blue 💙"
+    correct: "Blue 💙",
   },
   {
     question: "Which place we both love to visit?",
     options: ["Goa 🏖️", "Manali ❄️", "Paris 💐", "Kashmir 🌸"],
-    correct: "Manali ❄️"
+    correct: "Manali ❄️",
   },
   {
     question: "Which movie do we both enjoy?",
     options: ["Taqdeer 🎬", "Titanic 🚢", "3 Idiots 🎓", "KGF 🔥"],
-    correct: "Taqdeer 🎬"
+    correct: "Taqdeer 🎬",
   },
   {
     question: "What’s our favorite food together?",
     options: ["Pizza 🍕", "Pani Puri 🌶️", "Burger 🍔", "Ice Cream 🍨"],
-    correct: "Ice Cream 🍨"
-  }
+    correct: "Ice Cream 🍨",
+  },
 ];
 
 let currentQuestion = 0;
@@ -31,6 +31,8 @@ const nextButton = document.getElementById("next-btn");
 const resultBox = document.getElementById("result-box");
 const scoreText = document.getElementById("score");
 const continueBtn = document.getElementById("continue-btn");
+const correctSound = document.getElementById("correct-sound");
+const wrongSound = document.getElementById("wrong-sound");
 
 // 🌸 Show Question
 function showQuestion() {
@@ -38,7 +40,7 @@ function showQuestion() {
   questionElement.textContent = q.question;
   optionsElement.innerHTML = "";
 
-  q.options.forEach(opt => {
+  q.options.forEach((opt) => {
     const btn = document.createElement("button");
     btn.textContent = opt;
     btn.classList.add("option");
@@ -49,14 +51,16 @@ function showQuestion() {
 
 function selectOption(selected, correct) {
   const options = document.querySelectorAll(".option");
-  options.forEach(btn => btn.disabled = true);
+  options.forEach((btn) => (btn.disabled = true));
 
   if (selected.textContent === correct) {
     selected.classList.add("correct");
+    correctSound.play();
     score++;
   } else {
     selected.classList.add("wrong");
-    options.forEach(btn => {
+    wrongSound.play();
+    options.forEach((btn) => {
       if (btn.textContent === correct) btn.classList.add("correct");
     });
   }
@@ -79,6 +83,13 @@ function showResult() {
   resultBox.classList.remove("hidden");
   const percent = Math.round((score / questions.length) * 100);
   scoreText.textContent = `You both know each other ${percent}% 💞`;
+
+  // Add a sparkle animation
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    `<div class="sparkle">✨ ${percent}% ✨</div>`
+  );
+  setTimeout(() => document.querySelector(".sparkle")?.remove(), 2000);
 }
 
 continueBtn.addEventListener("click", () => {

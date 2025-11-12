@@ -38,7 +38,7 @@
     // greeting from panda, then focus input
     (function(){
       const nameSpeechEl = document.getElementById('name-speech');
-      const initialText = "Aww… before we begin, tell me your sweet name, princess 💫";
+      const initialText = "Aww… before we begin, tell me your sweet name, soneeee 💫";
       typeText(nameSpeechEl, initialText, 28, () => {
         document.getElementById('name-input').focus();
       });
@@ -52,7 +52,7 @@
       if (saved) input.value = saved;
 
       cont.addEventListener('click', async () => {
-        const name = input.value.trim() || 'Princess';
+        const name = input.value.trim() || 'shona';
         localStorage.setItem('birthday_name', name);
         sessionStorage.setItem('userInteracted', '1');
 
@@ -64,9 +64,9 @@
       });
 
       skip.addEventListener('click', async () => {
-        localStorage.setItem('birthday_name', 'Princess');
+        localStorage.setItem('birthday_name', 'Shona');
         sessionStorage.setItem('userInteracted', '1');
-        await pandaReplySequence('Alright, Princess it is! 💖', 28);
+        await pandaReplySequence('Alright, Shona it is! 💖', 28);
         persistBGMNow();
         document.body.classList.add('page-fadeout');
         setTimeout(()=> window.location.href = 'quote.html', 700);
@@ -87,4 +87,5 @@
   </script>
 </body>
 </html>
+
 

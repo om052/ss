@@ -8,17 +8,17 @@ const questions = [
   {
     question: "Which place we both love to visit?",
     options: ["Goa 🏖️", "Manali ❄️", "Paris 💐", "Kashmir 🌸"],
-    correct: "Manali ❄️",
+    correct: "Kashmir 🌸",
   },
   {
     question: "Which movie do we both enjoy?",
     options: ["Taqdeer 🎬", "Titanic 🚢", "3 Idiots 🎓", "KGF 🔥"],
-    correct: "Taqdeer 🎬",
+    correct: "3 Idiots 🎓",
   },
   {
     question: "What’s our favorite food together?",
     options: ["Pizza 🍕", "Pani Puri 🌶️", "Burger 🍔", "Ice Cream 🍨"],
-    correct: "Ice Cream 🍨",
+    correct: "Pani Puri 🌶️",
   },
 ];
 
@@ -98,3 +98,4 @@ continueBtn.addEventListener("click", () => {
 
 // Initialize
 showQuestion();
+
